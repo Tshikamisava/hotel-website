@@ -1,0 +1,125 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  flex-direction: column;
+}
+body{
+  background-color: snow;
+
+}
+
+
+
+
+.heading{
+  margin-bottom: 50px;
+}
+
+.navbar-links-container a {
+  margin-right: 3rem;
+  text-decoration: none;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+
+.nav-link:hover {
+	text-decoration:none;
+	border-bottom: 3px solid white;
+  }
+
+
+  .img-con, .gym-container, .room-con {
+    position: relative;
+  }
+  .text{
+    top:89%;
+    right: 40%;
+    position: absolute;
+    background-color: white;
+    width: 400px;
+    text-align: center;
+    color: rgb(12, 12, 82);
+    font-weight: bold;
+    font-size: 29px;
+  }
+  
+  .nav-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+  }
+  
+  .img1, .room2{
+    width: 100%;
+    height: auto;
+  }
+
+  .text-container{
+
+    position: absolute;
+    top: 40%;
+    right: 50%;
+    color: white;
+    
+  }
+
+  .facilities, .rooms{
+
+    text-align: center;
+    
+    color: rgb(12, 12, 82);
+
+    
+  }
+  .facilities h1, .rooms h1{
+    font-family: serif;
+    font-size: 70px;
+
+  }
+
+  .facilities p, .rooms p{
+
+    font-size: 30px;
+  
+
+  }
+
+  .nav-wrapper{
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .nav-wrapper:hover{
+    opacity: 1;
+  }
+  
+
+  /*.gym-container {
+    top:89%;
+    right: 40%;
+    position: rela;
+    background-color: white;
+    width: 400px;
+    text-align: center;
+    color: rgb(12, 12, 82);
+    font-weight: bold;
+    font-size: 29px;
+  }*/
