@@ -13,7 +13,14 @@ import GuestSelector from './components/Bookings';
 function App() {
   return (
     <div className="App">
-      <GuestSelector/>
+    <BrowserRouter>
+      <Routes>
+        <Route  path='/' element={<Login/>}/>
+        <Route path='/login' element={<SignUp/>}/>
+        <Route path='/signup' element={<SignUp/>}/>
+        <Route  path='/home' element={<Home/>}/>
+      </Routes>
+     </BrowserRouter>
   
     </div>
   );
