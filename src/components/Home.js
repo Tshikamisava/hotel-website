@@ -1,5 +1,5 @@
 import React from 'react'; 
-import Header from './Header';
+
 import img1 from './images/img1.jpg';
 import gym from './images/gym.jpg';
 import sidebar from './images/sidebar.jpg';
@@ -7,12 +7,10 @@ import spa from './images/spa.jpg';
 import swimm from './images/swimm.jpg';
 import laundry from './images/laundry.jpg';
 import res from './images/res.jpg';
-import NavWrapper from './Header';
 
 function Home() {
     return (
         <div>
-           <NavWrapper/>
             <table>
            
                 <tr>
@@ -108,7 +106,7 @@ function Home() {
                         <img src={res} style={{width: '1200px'}} className='res' alt='res' />
 
                         <div className='text'>
-                        <h1 style={{fontSize:'80px',fontFamily:'serif'}}>POOLSIDE BAR</h1>
+                        <h1 style={{fontSize:'75px',fontFamily:'serif'}}>RESTUARENT</h1>
                         
                         </div>
                         </div>
