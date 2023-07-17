@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useState} from 'react';
 import room2 from './images/room2.jpg';
 import room1 from './images/room1.jpg';
 //import RatingStars from './Rating';
 import RatingStars from 'react-rating-stars-component';
 import { FaHeart } from 'react-icons/fa';
+import {Link, useNavigate} from 'react-router-dom';
+
+
 
 function RoomDisplay() {
+  const navigate = useNavigate();
+
     return (
         <div>
             <table>
@@ -16,7 +21,7 @@ function RoomDisplay() {
                             <div className='nav-container'>
                                 <nav >
                                     <div className='navbar-links-container'>
-                                        <a href='' className='nav-link' style={{fontSize:'25px'}}>Facilities</a>
+                                        <a href='/home' className='nav-link' style={{fontSize:'25px'}}>Facilities</a>
                                         <a href='' className='nav-link' style={{fontSize:'25px'}}>Rooms</a>
                                     </div>
                                 </nav>
@@ -57,7 +62,7 @@ function RoomDisplay() {
         <p class="card-text" style={{marginTop: '100px'}}> wifi .Air conditioning .kitchen .Heating .Smokers<br></br>
         .Parking .Balcony .Animal friendly</p>
 
-        <button className='submit-button' >BOOK</button>
+        <button className='submit-button' onClick={() => navigate('/bookings')}>BOOK</button>
       
         <p class="card-text" ><small class="text-muted" style={{display: 'inline-flex'}}>
        4.0 <RatingStars
@@ -105,7 +110,7 @@ function RoomDisplay() {
   <p class="card-text" style={{marginTop: '100px'}}> wifi .Air conditioning .kitchen .Heating .Smokers<br></br>
   .Parking .Balcony .Animal friendly</p>
 
-  <button className='submit-button' >BOOK</button>
+  <button className='submit-button' onClick={() => navigate('/bookings')} >BOOK</button>
 
   <p class="card-text" ><small class="text-muted" style={{display: 'inline-flex'}}>
  4.0 <RatingStars

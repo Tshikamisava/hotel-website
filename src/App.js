@@ -8,6 +8,8 @@ import Login from './components/Login';
 import SignUp from './components/SignUP';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import GuestSelector from './components/Bookings';
+import Reserved from './components/Success';
+
 
 
 function App() {
@@ -15,10 +17,14 @@ function App() {
     <div className="App">
     <BrowserRouter>
       <Routes>
-        <Route  path='/' element={<Login/>}/>
-        <Route path='/login' element={<SignUp/>}/>
-        <Route path='/signup' element={<SignUp/>}/>
+        
+        <Route path='/' element={<Login/>}/>
         <Route  path='/home' element={<Home/>}/>
+        <Route path='/signup' element={<SignUp/>}/>
+        <Route  path='/bookings' element={<GuestSelector/>}/>
+        <Route  path='/rooms' element={<RoomDisplay/>}/>
+        <Route path='/success' element={<Reserved/>}/>
+        
       </Routes>
      </BrowserRouter>
   

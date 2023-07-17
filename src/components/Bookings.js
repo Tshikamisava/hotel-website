@@ -1,44 +1,71 @@
 import React, { useState } from 'react';
+import {db} from '../config/firebase';
+import {collection, addDoc} from 'firebase/firestore';
+import { Link, useNavigate } from 'react-router-dom';
+
+
 
 function GuestSelector() {
-  const [guestCount, setGuestCount] = useState(0);
-  const [guestAdult, setAdultCount] = useState(0);
-  const [guestNight, setNightCount] = useState(0);
+  const [children, setChildren] = useState(0);
+  const [adult, setAdult] = useState(0);
+  const [night, setNight] = useState(0);
 
-  const decrementGuestCount = () => {
-    if (guestCount > 1) {
-      setGuestCount(guestCount - 1);
+  const navigate = useNavigate();
+
+  const decrementChildren = () => {
+    if (children > 1) {
+      setChildren(children - 1);
     }
   };
 
-  const incrementGuestCount = () => {
-    setGuestCount(guestCount + 1);
+  const incrementChildren = () => {
+    setChildren(children + 1);
   };
 
   /*Adult count */
 
-  const decrementAdultCount = () => {
-    if (guestAdult > 1) {
-      setAdultCount(guestAdult - 1);
+  const decrementAdult= () => {
+    if (adult > 1) {
+      setAdult(adult - 1);
     }
   };
 
-  const incrementAdultCount = () => {
-    setGuestCount(guestAdult + 1);
+  const incrementAdult = () => {
+    setAdult(adult + 1);
   };
 
   /* night count */
 
-  const decrementNightCount = () => {
-    if (guestAdult > 1) {
-      setNightCount(guestNight - 1);
+  const decrementNight = () => {
+    if (night > 1) {
+      setNight(night - 1);
     }
   };
 
-  const incrementNightCount = () => {
-    setNightCount(guestNight + 1);
+  const incrementNight = () => {
+    setNight(night + 1);
   };
 
+  // store reservation data on firestore//
+
+  const add= (async()=>{
+
+ 
+    try {
+      const docRef = await addDoc(collection(db, "Reservation"),{
+        children: children,
+        adult: adult,
+        night: night,
+      });
+      alert("Reserve sucessfully!")
+      navigate('/success')
+      
+    } catch (error) {
+      
+    }
+
+  
+  })
 
   return (
     <div className='guest-card'>
@@ -55,24 +82,24 @@ function GuestSelector() {
 
    
     <div className='guest-container'>
-      <p><small>Children</small>
-      <button onClick={decrementGuestCount}>-</button>
-      <span>{guestCount}</span>
-      <button onClick={incrementGuestCount}>+</button><br></br>
+      <p><small>Children&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
+      <button onClick={decrementChildren} onChange={(e)=>setChildren(e.target.value)}className='circle-button'>-</button>
+      <span>{children}</span>
+      <button onClick={incrementChildren} onChange={(e)=>setChildren(e.target.value)} className='circle-button'>+</button><br></br>
     </p>
-    <p><small>Adult</small>
-      <button onClick={decrementAdultCount}>-</button>
-      <span>{guestAdult}</span>
-      <button onClick={incrementAdultCount}>+</button><br></br>
+    <p><small>Adult&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
+      <button onClick={decrementAdult} onChange={(e)=>setAdult(e.target.value)}className='circle-button'>-</button>
+      <span>{adult}</span>
+      <button onClick={incrementAdult} onChange={(e)=>setAdult(e.target.value)} className='circle-button'>+</button><br></br>
     </p>
-    <p><small>Night</small>
-      <button onClick={decrementNightCount}>-</button>
-      <span>{guestNight}</span>
-      <button onClick={incrementNightCount}>+</button><br></br>
+    <p><small>Night&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</small>
+      <button onClick={decrementNight} onChange={(e)=>setNight(e.target.value)}className='circle-button'>-</button>
+      <span>{night}</span>
+      <button onClick={incrementNight}  onChange={(e)=>setNight(e.target.value)} className='circle-button'>+</button><br></br>
     </p>
-      <h4>R500 <small>total</small></h4>
+      <h4>R500 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <small>total</small></h4>
 
-      <button className='submit-button' >RESERVE</button>
+      <button className='submit-button' onClick={add} >RESERVE</button>
     </div>
     
   

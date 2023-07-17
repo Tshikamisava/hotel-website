@@ -11,13 +11,14 @@ function Login() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  const navigate = useNavigate();
 
 
 
   const Login = (()=>{
     signInWithEmailAndPassword(auth, email, password).then(()=>{
       alert("Login successfully")
-      
+      navigate('/home');
     }).catch((error)=>{
       console.log(error.message);
     })

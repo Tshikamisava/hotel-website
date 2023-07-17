@@ -12,10 +12,12 @@ function SignUp() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
 
+  const navigate = useNavigate();
 
   const register = (()=>{
     createUserWithEmailAndPassword(auth, email, password).then(()=>{
       alert("Registered successfully")
+      navigate('/')
     }).catch((error)=>{
       console.log(error.message);
     })

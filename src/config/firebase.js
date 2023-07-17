@@ -9,6 +9,7 @@ import { getAnalytics } from "firebase/analytics";
 
 
 import {getAuth} from 'firebase/auth';
+import { getFirestore } from "firebase/firestore";
 const firebaseConfig = {
   apiKey: "AIzaSyC9XU0LPrwBnjVFPED2Xly1gWjkvqATOYM",
   authDomain: "hotel-app-61d57.firebaseapp.com",
@@ -24,5 +25,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 const auth = getAuth(app);
+const db = getFirestore(app);
 
-export {auth}
+export {auth , db}

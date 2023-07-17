@@ -24,7 +24,7 @@ function Home() {
                                     
                                     <div className='navbar-links-container'>
                                         <a href='' className='nav-link' style={{fontSize:'25px'}}>Facilities</a>
-                                        <a href='' className='nav-link' style={{fontSize:'25px'}}>Rooms</a>
+                                        <a href='/rooms' className='nav-link' style={{fontSize:'25px'}}>Rooms</a>
                                     </div>
                                 </nav>
                             </div>
